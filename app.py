@@ -10,7 +10,10 @@ restaurantes=[{'nome':'Bife-sujo','categoria':'prato-feito','ativo': True},
 
 def mostrar_subtitulo(texto):
     os.system('clear')
+    linha='*'*(len(texto))
+    print(linha)
     print (texto)
+    print(linha)
     print()
 
 #2 declarando a função finalizar_app
@@ -54,13 +57,12 @@ def cadatrar_novo_restaurante():
 
 def listar_restaurantes():
     mostrar_subtitulo('Listando os restaurantes')
+    print(f'-Nome do Restaurante'.ljust(24),'-Categoria'.ljust(20),'-Ativo')
     for restaurante in restaurantes:
-       # print(f'- {restaurantes}')
-       #modificando a maneira de listar dicionario
        nome_restaurante=restaurante['nome']
        categoria=restaurante['categoria']
-       ativo=restaurante ['ativo']
-       print(f'-{nome_restaurante} | -{categoria} | -{ativo}')
+       ativo='Ativo'if restaurante ['ativo'] else 'Desativado'
+       print(f'-{nome_restaurante.ljust(20)} | -{categoria.ljust(20)} | -{ativo}')
     #chamar a duas funções e saída
     voltar_ao_menu_principal()
 
@@ -83,7 +85,7 @@ def alterar_estado_restaurante():
 
 #8 declarando a função opcao_digitada1
 def escolher_opcao():
-    #11 adcionando o try
+    
     try:
         opcao_digitada = (int(input("Escolha uma opção")))
         print ("Você selecionou:",opcao_digitada, "\n")
